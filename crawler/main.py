@@ -51,6 +51,12 @@ class MyStreamListener(tweepy.StreamListener):
         super().__init__()
         self.connection = connection
 
+    def on_error(self, status_code):
+        print('ERROR', status_code)
+        if status_code == 420:
+            # returning False in on_error disconnects the stream
+            return False
+
     def on_status(self, status):
         if status.retweeted or not hasattr(status, 'extended_tweet'):
             return None
@@ -75,8 +81,10 @@ class MyStreamListener(tweepy.StreamListener):
             connection.commit()
 
 
+print("CREATE POSTGES SCHEMA")
 create_postgres_schema()
 
+print("CREATE CONNECTION")
 connection = create_connection()
 twitter_auth = tweepy.OAuthHandler(
     twitter_consumer_key, twitter_consumer_secret)
@@ -84,10 +92,13 @@ twitter_auth.set_access_token(
     twitter_access_token, twitter_access_token_secret)
 twitter_api = tweepy.API(twitter_auth)
 
+print("CREATE STREAM")
 # create stream listener
 myStreamListener = MyStreamListener(connection)
 myStream = tweepy.Stream(
     auth=twitter_api.auth, listener=myStreamListener, tweet_mode='extended')
+print("START STREAM")
 myStream.filter(
     track=['a'],
     languages=['en'])
+print('FILTER HAS BEEN EXECUTED, WAITING FOR STREAM')

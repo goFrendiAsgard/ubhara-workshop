@@ -8,4 +8,3 @@ dependencies:
   - pylint=2.4.4
   - python=3.8.2
   - tweepy=3.8.0
-
