@@ -1,11 +1,11 @@
 name: twitter-crawler
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - pip=20.0.2
+  - psycopg2=2.8.4
   - pylint=2.4.4
-  - python=3.8.1
-  - pymysql=0.9.2
-  - pip:
-    - tweepy==3.8.0
+  - python=3.8.2
+  - tweepy=3.8.0
 
