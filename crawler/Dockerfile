@@ -12,4 +12,4 @@ RUN /opt/conda/bin/conda env update -n base -f environment.yml && /opt/conda/bin
 
 COPY . /home/anaconda/
 
-CMD /opt/conda/bin/conda init > /dev/null && source /home/anaconda/.bashrc && python main.py
+CMD /opt/conda/bin/conda init && source /home/anaconda/.bashrc && python main.py
