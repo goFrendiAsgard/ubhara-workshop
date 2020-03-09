@@ -9,11 +9,11 @@ twitter_access_token_secret = os.environ['TWITTER_ACCESS_TOKEN_SECRET']
 twitter_consumer_key = os.environ['TWITTER_CONSUMER_KEY']
 twitter_consumer_secret = os.environ['TWITTER_CONSUMER_SECRET']
 
-postgres_host = 'localhost'
-postgres_database = 'postgres'
-postgres_user = 'postgresUser'
-postgres_password = 'postgresPassword'
-postgres_schema = 'tweet'
+postgres_host = os.environ['POSTGRES_HOST']
+postgres_database = os.environ['POSTGRES_DATABASE']
+postgres_user = os.environ['POSTGRES_USER']
+postgres_password = os.environ['POSTGRES_PASSWORD']
+postgres_schema = os.environ['POSTGRES_SCHEMA']
 
 postgres_create_db_sql = 'CREATE SCHEMA IF NOT EXISTS ' + \
     postgres_schema + ';'
