@@ -1,8 +1,12 @@
-# Tujuan kita
+# Apa yang akan kita buat
 
 Crawl data dari twitter, simpan ke postgresql, dan ingest pakai redash:
 
 ![](dashboard.png)
+
+# Bagaimana semua ini akan bekerja
+
+![](arsitektur.png)
 
 # Yang dibutuhkan
 
@@ -10,6 +14,33 @@ Crawl data dari twitter, simpan ke postgresql, dan ingest pakai redash:
 * docker-compose
 * koneksi internet
 * twitter developer account (https://developer.twitter.com/)
+
+# Yang sebenarnya dibutuhkan (di balik layar)
+
+* Python
+* Tweepy (Untuk stream tweet dari twitter)
+
+# Apa itu docker
+
+> Docker is a set of platform as a service products that uses OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels
+
+Sederhananya: Docker seperti virtual machine dengan share kernel.
+
+## Bagaimana menginstall docker
+
+```
+sudo apt-get install docker docker-compose
+```
+
+Atau download di [https://www.docker.com/](https://www.docker.com/)
+
+# Apa itu tweepy
+
+Library Python untuk mengakses twitter API [http://www.tweepy.org/](http://www.tweepy.org/)
+
+# Apa itu redash
+
+Data analytic framework [https://redash.io/](https://redash.io/)
 
 # Persiapkan environment
 
