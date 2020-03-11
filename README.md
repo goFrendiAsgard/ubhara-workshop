@@ -19,6 +19,8 @@ Crawl data dari twitter, simpan ke postgresql, dan ingest pakai redash:
 
 * Python
 * Tweepy (Untuk stream tweet dari twitter)
+* Postgre SQL (Pakai DB apapun boleh)
+* Redash (Untuk query dan visualisasi)
 
 # Apa itu docker
 
