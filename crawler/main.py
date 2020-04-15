@@ -49,7 +49,10 @@ class MyStreamListener(tweepy.StreamListener):
 
     def __init__(self, connection):
         super().__init__()
-        self.connection = connection
+        try:
+            self.connection = connection
+        except Exception as e:
+            print(e)
 
     def on_error(self, status_code):
         print('ERROR', status_code)
@@ -81,7 +84,7 @@ class MyStreamListener(tweepy.StreamListener):
             connection.commit()
 
 
-print("CREATE POSTGES SCHEMA")
+print("CREATE POSTGRES SCHEMA")
 create_postgres_schema()
 
 print("CREATE CONNECTION")

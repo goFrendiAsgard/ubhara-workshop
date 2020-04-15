@@ -55,14 +55,30 @@ Edit `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_TOKEN_SECRET`, `TWITTER_CONSUMER_KE
 
 dan simpan.
 
+> __PERINGATAN__: Isi environment variable tidak perlu diberi tanda petik
+
 ## Persiapkan semua docker container dan jalankan
 
 ```sh
-docker-compose run --rm server create_db
+docker-compose run --rm server create_db # hanya perlu dilakukan saat run pertama kali
 docker-compose up
 ```
 
-# Beberapa Query menarik
+# Akses Redis
+
+Setelah menjalankan `docker-compose up`, kita bisa mengakses dashbaord redis melalui alamat http://localhost:5000
+
+# Membuat Datasource
+
+Setelah membuka dashboard redis, kita bisa membuat datasource dengan mengisikan credential sesuai dengan setting postgre yang ada di environment variable (kebetulan crawler kita juga menyimpan data hasil crawl di postgre).
+
+![](new-data-source.png)
+
+# Membuat query
+
+Setelah membuat datasource, kita bisa membuat beberapa query yang menarik.
+
+Cobalah membuat query-query berikut dan mengatur visualisasi yang sesuai.
 
 Jumlah tweet per detik (60 terakhir)
 
@@ -89,3 +105,9 @@ Text by hashtag
 ```sql
 SELECT "text" FROM postgres.tweet.statuses WHERE hashtag='{{hashtag}}'
 ```
+
+# Membuat dashboard
+
+Usai membuat query, kita bisa menambahkan visualisasi nya ke dashboard. Cobalah membuat dashboard seperti ini:
+
+![](dashboard.png)
